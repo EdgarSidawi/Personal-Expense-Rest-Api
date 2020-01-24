@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(ExpenseModel::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence,
-        'amount'=> $faker->doubleval,
+        'amount'=> $faker->numberBetween($min = 1, $max = 99),
         'date' => $faker->date,
 
         'session_id' => function () {

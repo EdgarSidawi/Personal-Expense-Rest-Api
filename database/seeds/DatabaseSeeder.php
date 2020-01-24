@@ -12,11 +12,10 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run()  
     {
-        // $this->call(UsersTableSeeder::class);
         factory(User::class)->create(['email' => 'edgar@gmail.com', 'password' => 'junior']);
-        factory(SessionModel::class, 10)->create();
-        factory(ExpenseModel::class, 5)->create();
+        factory(SessionModel::class, 5)->create();
+        factory(ExpenseModel::class, 20)->create();
     }
 }

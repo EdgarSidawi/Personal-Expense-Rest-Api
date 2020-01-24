@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 
 $factory->define(SessionModel::class, function (Faker $faker) {
     return [
-        'bugbet' => $faker->doubleval, //$faker->numberBetween($min = 1, $max = 99),
+        'bugbet' => $faker->numberBetween($min = 1, $max = 999),
         'completed' => false,
         'startDate' => $faker->date,
         'endDate' => $faker->dateTimeBetween('+1 week', '+1 month'),
