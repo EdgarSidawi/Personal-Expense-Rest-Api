@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\SessionModel;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(SessionModel::class, function (Faker $faker) {
