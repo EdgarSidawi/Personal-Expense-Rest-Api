@@ -13,8 +13,8 @@ $factory->define(SessionModel::class, function (Faker $faker) {
         'startDate' => $faker->date,
         'endDate' => $faker->dateTimeBetween('+1 week', '+1 month'),
         'user_id' => function () {
-            return  factory(User::class)->create()->id;
-            // return  User::all()->random();
+            // return  factory(User::class)->create()->id;
+            return  User::all()->random();
         }
 
     ];

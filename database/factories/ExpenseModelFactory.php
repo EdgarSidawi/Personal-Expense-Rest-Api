@@ -13,8 +13,8 @@ $factory->define(ExpenseModel::class, function (Faker $faker) {
         'date' => $faker->date,
 
         'session_id' => function () {
-            return  factory(SessionModel::class)->create()->id;
-            // return  User::all()->random();
+            // return  factory(SessionModel::class)->create()->id;
+            return  SessionModel::all()->random();
         }
     ];
 });
