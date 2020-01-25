@@ -21,13 +21,20 @@ class SessionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Store a newly created resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $request->user_id = 1;
+        Session::create([
+            'user_id' => 1,
+            'bugbet' => $request->bugdet
+            ]
+        );
+        return response('Created Successfully', 201);
     }
 
 

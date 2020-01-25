@@ -16,9 +16,9 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->double('bugbet');
-            $table->date('startDate');
-            $table->date('endDate');
-            $table->boolean('completed');
+            $table->date('startDate')->default(Carbon\Carbon::now());
+            $table->date('endDate')->default(Carbon\Carbon::now()->addDays(30));
+            $table->boolean('completed')->default(0);
 
             $table->integer('user_id')->unsigned();
             $table->timestamps();

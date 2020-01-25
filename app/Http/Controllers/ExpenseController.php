@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Expense;
+use App\Model\Session;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -12,19 +13,9 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Session $session)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return $session->expense;
     }
 
     /**
@@ -35,7 +26,13 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->user_id = 1;
+        Session::create([
+            'user_id' => 1,
+            'bugbet' => $request->bugdet
+            ]
+        );
+        return response('Created Successfully', 201);
     }
 
     /**
@@ -45,17 +42,6 @@ class ExpenseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Expense $expense)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Expense  $expense
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Expense $expense)
     {
         //
     }
