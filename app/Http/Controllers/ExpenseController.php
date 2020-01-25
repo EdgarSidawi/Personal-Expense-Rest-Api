@@ -48,7 +48,7 @@ class ExpenseController extends Controller
      * @param  \App\Model\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Session $session, Request $request, Expense $expense)
     {
         $expense->update($request->all());
 
@@ -61,7 +61,7 @@ class ExpenseController extends Controller
      * @param  \App\Model\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expense $expense)
+    public function destroy(Session $session, Expense $expense)
     {
        $expense->delete();
 
