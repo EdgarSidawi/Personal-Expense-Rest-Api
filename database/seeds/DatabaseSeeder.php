@@ -1,7 +1,7 @@
 <?php
 
-use App\ExpenseModel;
-use App\SessionModel;
+use App\Model\Expense;
+use App\Model\Session;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()  
     {
         factory(User::class)->create(['email' => 'edgar@gmail.com', 'password' => 'junior']);
-        factory(SessionModel::class, 5)->create();
-        factory(ExpenseModel::class, 20)->create();
+        factory(Session::class, 5)->create();
+        factory(Expense::class, 20)->create();
     }
 }

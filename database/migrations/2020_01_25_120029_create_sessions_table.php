@@ -15,6 +15,12 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->double('bugbet');
+            $table->date('startDate');
+            $table->date('endDate');
+            $table->boolean('completed');
+
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
