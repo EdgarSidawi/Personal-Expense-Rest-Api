@@ -24,14 +24,9 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Session $session, Request $request)
     {
-        $request->user_id = 1;
-        Session::create([
-            'user_id' => 1,
-            'bugbet' => $request->bugdet
-            ]
-        );
+        $session->expense()->create($request->all());
         return response('Created Successfully', 201);
     }
 

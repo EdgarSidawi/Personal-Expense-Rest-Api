@@ -17,7 +17,7 @@ class CreateExpensesTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->double('amount');
-            $table->date('date');
+            $table->date('date')->default(Carbon\Carbon::now());
 
             $table->unsignedBigInteger('session_id')->unsigned();
 
