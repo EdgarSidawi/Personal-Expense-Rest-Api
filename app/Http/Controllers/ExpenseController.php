@@ -50,7 +50,9 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, Expense $expense)
     {
-        //
+        $expense->update($request->all());
+
+        return response('Updated', 202);
     }
 
     /**
@@ -61,6 +63,8 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        //
+       $expense->delete();
+
+       return response('Deleted', 203);
     }
 }
