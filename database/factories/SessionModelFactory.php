@@ -7,7 +7,6 @@ use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(SessionModel::class, function (Faker $faker) {
-    // $currentDate = Carbon\Carbon::now();
     return [
         'bugbet' => $faker->numberBetween($min = 1, $max = 999),
         'completed' => false,
