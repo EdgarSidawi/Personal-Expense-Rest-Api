@@ -19,7 +19,7 @@ class CreateExpensesTable extends Migration
             $table->double('amount');
             $table->date('date');
 
-            $table->integer('session_id')->unsigned();
+            $table->unsignedBigInteger('session_id')->unsigned();
 
             $table->foreign('session_id')->references('id')->on('sessions')->onDelete('cascade');
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Session;
+use App\User;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
@@ -14,7 +15,9 @@ class SessionController extends Controller
      */
     public function index()
     {
-        //
+        $session = Session::all()->where('user_id',1)->where('completed', 0);
+        // return auth()->user()->$session;
+        return $session;
     }
 
     /**
@@ -27,16 +30,6 @@ class SessionController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -44,34 +37,15 @@ class SessionController extends Controller
      * @param  \App\Model\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function show(Session $session)
+    public function completed()
     {
-        //
+        $session = Session::all()->where('user_id',1)->where('completed', 1);
+
+        return $session;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Session  $session
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Session $session)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Session  $session
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Session $session)
-    {
-        //
-    }
-
+ 
     /**
      * Remove the specified resource from storage.
      *
@@ -80,6 +54,8 @@ class SessionController extends Controller
      */
     public function destroy(Session $session)
     {
-        //
+        $session->delete();
+
+        return response('Deleted', 203);
     }
 }

@@ -14,8 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()  
     {
-        factory(User::class)->create(['email' => 'edgar@gmail.com', 'password' => 'junior']);
-        factory(Session::class, 5)->create();
-        factory(Expense::class, 20)->create();
+        factory(User::class, 10)->create(//['email' => 'edgar@gmail.com', 'password' => 'junior']
+    );
+        factory(Session::class, 20)->create();
+        factory(Expense::class, 50)->create();
     }
 }
