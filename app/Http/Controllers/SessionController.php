@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ExpenseModel;
+use App\Model\Session;
 use Illuminate\Http\Request;
 
-class ExpenseModelController extends Controller
+class SessionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ExpenseModelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ExpenseModel  $expenseModel
+     * @param  \App\Model\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function show(ExpenseModel $expenseModel)
+    public function show(Session $session)
     {
         //
     }
@@ -52,10 +52,10 @@ class ExpenseModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ExpenseModel  $expenseModel
+     * @param  \App\Model\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function edit(ExpenseModel $expenseModel)
+    public function edit(Session $session)
     {
         //
     }
@@ -64,10 +64,10 @@ class ExpenseModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ExpenseModel  $expenseModel
+     * @param  \App\Model\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ExpenseModel $expenseModel)
+    public function update(Request $request, Session $session)
     {
         //
     }
@@ -75,10 +75,10 @@ class ExpenseModelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ExpenseModel  $expenseModel
+     * @param  \App\Model\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ExpenseModel $expenseModel)
+    public function destroy(Session $session)
     {
         //
     }
