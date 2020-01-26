@@ -26,8 +26,8 @@ class ExpenseController extends Controller
      */
     public function store(Session $session, Request $request)
     {
-        $session->expense()->create($request->all());
-        return response('Created Successfully', 201);
+       $expense = $session->expense()->create($request->all());
+        return response($expense, 201);
     }
 
     /**
@@ -51,8 +51,7 @@ class ExpenseController extends Controller
     public function update(Session $session, Request $request, Expense $expense)
     {
         $expense->update($request->all());
-
-        return response('Updated', 202);
+        return response($expense, 202);
     }
 
     /**
