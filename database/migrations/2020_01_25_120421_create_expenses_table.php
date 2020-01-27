@@ -17,7 +17,6 @@ class CreateExpensesTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->double('amount');
-            $table->date('date');
 
             $table->unsignedBigInteger('session_id')->unsigned();
 
