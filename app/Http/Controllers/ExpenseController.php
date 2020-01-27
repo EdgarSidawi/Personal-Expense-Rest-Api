@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Expense;
 use App\Model\Session;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -36,6 +37,7 @@ class ExpenseController extends Controller
      */
     public function store(Session $session, Request $request)
     {
+        $request->date = Carbon::now();
        $expense = $session->expense()->create($request->all());
         return response($expense, 201);
     }
