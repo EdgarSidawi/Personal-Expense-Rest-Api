@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Model\Session;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        // $this->middleware('JWT', ['except' => ['index','completed']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +42,9 @@ class SessionController extends Controller
         $request->user_id = 1;
         Session::create([
             'user_id' => 1,
-            'bugbet' => $request->bugdet
+            'bugbet' => $request->bugdet,
+            'startDate' => Carbon::now(),
+            'endDate' => Carbon::now()->addDays(30)
             ]
         );
         return response('Created Successfully', 201);

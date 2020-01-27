@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class ExpenseController extends Controller
 {
     /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        // $this->middleware('JWT', ['except' => ['index']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -28,17 +38,6 @@ class ExpenseController extends Controller
     {
        $expense = $session->expense()->create($request->all());
         return response($expense, 201);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Model\Expense  $expense
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Expense $expense)
-    {
-        //
     }
 
     /**
