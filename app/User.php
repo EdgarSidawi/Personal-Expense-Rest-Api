@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\Session;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -46,6 +47,9 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTIdentifier()
     {
         return $this->getKey();
+    }
+    public function session(){
+       return $this->hasMany(Session::class);
     }
 
     /**

@@ -9,11 +9,13 @@ class Session extends Model
 {
     protected $guarded = [];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function expense(){
+    public function expense()
+    {
         return $this->hasMany(Expense::class);
     }
 }

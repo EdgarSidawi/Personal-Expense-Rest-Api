@@ -16,7 +16,7 @@ class ExpenseController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('JWT', ['except' => ['index']]);
+        $this->middleware('JWT', ['except' => ['index']]);
     }
 
     /**

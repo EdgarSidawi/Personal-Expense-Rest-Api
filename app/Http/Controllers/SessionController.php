@@ -16,7 +16,7 @@ class SessionController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('JWT', ['except' => ['index','completed']]);
+        $this->middleware('JWT');
     }
 
     /**
@@ -26,9 +26,9 @@ class SessionController extends Controller
      */
     public function index()
     {
-        $session = Session::all()->where('user_id',1)->where('completed', 0);
-        // return auth()->user()->$session;
-        return $session;
+        // $session = Session::all()->where('user_id',1)->where('completed', 0);
+        // return $session;
+        return auth()->user()->session->where('completed',0);
     }
 
     /**
