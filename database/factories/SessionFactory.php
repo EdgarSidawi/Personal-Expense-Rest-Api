@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Session::class, function (Faker $faker) {
     return [
-        'bugbet' => $faker->numberBetween($min = 1, $max = 999),
+        'budget' => $faker->numberBetween($min = 1, $max = 999),
         'completed' => false,
         'startDate' => Carbon\Carbon::now(),
         'endDate' => Carbon\Carbon::now()->addDays(30),

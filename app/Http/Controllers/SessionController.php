@@ -38,11 +38,10 @@ class SessionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->user_id = 1;
+    { 
         Session::create([
-            'user_id' => 1,
-            'bugbet' => $request->bugdet,
+            'user_id' => auth()->user()->id,
+            'budget' => $request->budget,
             'startDate' => Carbon::now(),
             'endDate' => Carbon::now()->addDays(30)
             ]

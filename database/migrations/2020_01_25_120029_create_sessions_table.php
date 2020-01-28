@@ -15,7 +15,7 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double('bugbet');
+            $table->double('budget');
             $table->date('startDate');
             $table->date('endDate');
             $table->boolean('completed')->default(0);
