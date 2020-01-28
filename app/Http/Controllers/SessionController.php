@@ -26,9 +26,25 @@ class SessionController extends Controller
      */
     public function index()
     {
-        // $session = Session::all()->where('user_id',1)->where('completed', 0);
-        // return $session;
-        return auth()->user()->session->where('completed',0);
+        
+       $session = auth()->user()->session->where('completed',0);
+       $count= $session->count();
+
+       if($count == 0){
+           return [];
+       }else {
+            $currentDate = Carbon::now();
+            $endDate = $session[0]->endDate;
+        
+            if($currentDate < $endDate){
+                return $session;
+            }else{
+                auth()->user()->session()->update([
+                    'completed'=>1
+                ]);
+                return [];
+            }
+        }
     }
 
     /**
@@ -39,14 +55,14 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     { 
-        Session::create([
+       $session = Session::create([
             'user_id' => auth()->user()->id,
             'budget' => $request->budget,
             'startDate' => Carbon::now(),
             'endDate' => Carbon::now()->addDays(30)
             ]
         );
-        return response('Created Successfully', 201);
+        return response($session, 201);
     }
 
 
